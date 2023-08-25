@@ -10,5 +10,8 @@ object pardo {
 object celeste {
 		method esFuerte() = false
 }
+object naranja{
+	method esFuerte() = true
+}
 
 

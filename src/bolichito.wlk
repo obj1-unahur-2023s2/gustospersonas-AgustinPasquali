@@ -14,6 +14,7 @@ object bolichito{
 		objetoEnMostrador = unProducto
 	}
 	// CONSULTORES
+	
 	method esBrillant(){
 		return objetoEnVidriera.material().esBrillante() and objetoEnMostrador.material().esBrillante()
 		
@@ -21,7 +22,19 @@ object bolichito{
 	method esMonocromatico(){ 
 		return objetoEnVidriera.color() == objetoEnMostrador.color() 
 	}
-	method estaDesequilibrado(){}
-	method puedeMejorar(){}
-	method puedeOfrecerleAlgoA(persona){} 
+	method estaDesequilibrado(){
+		return objetoEnMostrador.peso() > objetoEnVidriera.peso() 
+	}
+	method tieneAlgoDeColor(colorIndicado){
+		return colorIndicado == objetoEnVidriera.color() or colorIndicado == objetoEnMostrador.color()
+	}
+	
+	method puedeMejorar(){
+		return self.estaDesequilibrado() or self.esMonocromatico()
+	}
+	
+	method puedeOfrecerleAlgoA(persona){
+		return persona.leGusta(objetoEnVidriera) or persona.leGusta(objetoEnMostrador)
+	} 
+	
 }
